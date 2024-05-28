@@ -13,6 +13,7 @@ return {
 
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
+
   { -- You can easily change to a different colorscheme.
     -- Change the name of the colorscheme plugin below, and then
     -- change the command in the config to whatever the name of that colorscheme is.
@@ -70,5 +71,14 @@ return {
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
+  },
+
+  {
+    'akinsho/bufferline.nvim',
+    version = '*',
+    dependencies = 'nvim-tree/nvim-web-devicons',
+    opts = function()
+      require('custom.configs.bufferline')
+    end
   },
 }
