@@ -1,28 +1,46 @@
-return {
-  local api = require('nvim-tree.api')
- 
-  -- Ấn `Ctrl + ]` để thay đổi thư mục root
-  vim.keymap.set('n', '<C-]>', api.tree.change_root_to_node,          opts('CD'))
+local HEIGHT_RATIO = 0.8 -- You can change this
+local WIDTH_RATIO = 0.5 -- You can change this tool
 
-  -- Ấn `Enter` để edit 
-  vim.keymap.set('n', '<CR>',  api.node.open.edit,                    opts('Open'))
-  vim.keymap.set('n', '<Tab>', api.node.open.preview,                 opts('Open Preview'))
-      
-  -- Ấn `a` để tạo file
-  vim.keymap.set('n', 'a',     api.fs.create,                         opts('Create'))
-    -- Copy file or folder
-  vim.keymap.set('n', 'c',     api.fs.copy.node,                      opts('Copy'))
-    -- Delete file or folders
-  vim.keymap.set('n', 'd',     api.fs.remove,                         opts('Delete'))
-  vim.keymap.set('n', 'e',     api.fs.rename_basename,                opts('Rename: Basename'))
-  vim.keymap.set('n', 'p',     api.fs.paste,                          opts('Paste'))
-  vim.keymap.set('n', 'r',     api.fs.rename,                         opts('Rename'))
-  vim.keymap.set('n', 'R',     api.tree.reload,                       opts('Refresh'))
+vim.cmd [[
+  nnoremap - :NvimTreeToggle<CR>
+]]
 
-  vim.keymap.set('n', 'W',     api.tree.collapse_all,                 opts('Collapse'))
-  vim.keymap.set('n', 'A', api.tree.expand_all, opts('Expand All'))
-
-  vim.keymap.set('n', 'x',     api.fs.cut,                            opts('Cut'))
-  vim.keymap.set('n', 'y',     api.fs.copy.filename,                  opts('Copy Name'))
-  vim.keymap.set('n', 'Y',     api.fs.copy.relative_path,             opts('Copy Relative Path'))
+require('nvim-tree').setup {
+  disable_netrw = true,
+  hijack_netrw = true,
+  respect_buf_cwd = true,
+  sync_root_with_cwd = true,
+  view = {
+    relativenumber = true,
+    float = {
+      enable = true,
+      open_win_config = function()
+        local screen_w = vim.opt.columns:get()
+        local screen_h = vim.opt.lines:get() - vim.opt.cmdheight:get()
+        local window_w = screen_w * WIDTH_RATIO
+        local window_h = screen_h * HEIGHT_RATIO
+        local window_w_int = math.floor(window_w)
+        local window_h_int = math.floor(window_h)
+        local center_x = (screen_w - window_w) / 2
+        local center_y = ((vim.opt.lines:get() - window_h) / 2) - vim.opt.cmdheight:get()
+        return {
+          border = 'rounded',
+          relative = 'editor',
+          row = center_y,
+          col = center_x,
+          width = window_w_int,
+          height = window_h_int,
+        }
+      end,
+    },
+    width = function()
+      return math.floor(vim.opt.columns:get() * WIDTH_RATIO)
+    end,
+  },
+  -- filters = {
+  --   custom = { "^.git$" },
+  -- },
+  -- renderer = {
+  --   indent_width = 1,
+  -- },
 }

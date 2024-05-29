@@ -128,11 +128,15 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
--- Toggle Nvimtree
+-- Toggle Neotree
 vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 
 -- Ctrl + s to save file
 vim.keymap.set('n', '<C-s>', ':w<CR>', {})
+
+-- Set keymap for bufferline
+vim.keymap.set('n', '<Tab>', ':BufferLineCycleNext<CR>', { desc = 'Move next tab' })
+vim.keymap.set('n', '<S-Tab>', ':BufferLineCyclePrev<CR>', { desc = 'Move previos tab' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
