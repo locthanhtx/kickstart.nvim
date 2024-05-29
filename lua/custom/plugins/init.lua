@@ -12,4 +12,5 @@ return {
   require 'custom.plugins.autocompletion',
   require 'custom.plugins.nvim-treesitter',
   require 'custom.plugins.others',
+  require 'custom.plugins.toggleterm',
 }

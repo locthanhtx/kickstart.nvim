@@ -101,4 +101,16 @@ return {
     -- use opts = {} for passing setup options
     -- this is equalent to setup({}) function
   },
+
+  -- amongst your other plugins
+  -- {
+  --   'akinsho/toggleterm.nvim',
+  --   version = '*',
+  --   config = true,
+  --   keys = {
+  --     { '<leader>td', '<cmd>ToggleTerm<CR>', desc = 'Open a horizontal terminal at the Desktop directory' },
+  --   },
+  -- },
+  -- or
+  -- {'akinsho/toggleterm.nvim', version = "*", opts = {--[[ things you want to change go here]]}}
 }
