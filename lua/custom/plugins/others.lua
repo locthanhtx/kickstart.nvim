@@ -93,4 +93,12 @@ return {
       -- require('feline').use_theme() -- to use a custom theme
     end,
   },
+
+  {
+    'windwp/nvim-autopairs',
+    event = 'InsertEnter',
+    config = true,
+    -- use opts = {} for passing setup options
+    -- this is equalent to setup({}) function
+  },
 }
