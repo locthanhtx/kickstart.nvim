@@ -131,8 +131,16 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- Toggle Neotree
 vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 
+-- [[ keymap for MacOS]]
 -- Ctrl + s to save file
-vim.keymap.set('n', '<C-s>', ':w<CR>', {})
+vim.keymap.set('n', '<D-s>', ':w<CR>', {})
+-- copy
+vim.keymap.set('v', '<D-C>', '"+y"', {})
+-- paste
+vim.keymap.set('n', '<D-V>', '"+p"', {})
+-- cut
+vim.keymap.set('v', '<D-X>', '"+d"', {})
+
 
 -- Set keymap for bufferline
 vim.keymap.set('n', '<Tab>', ':BufferLineCycleNext<CR>', { desc = 'Move next tab' })
