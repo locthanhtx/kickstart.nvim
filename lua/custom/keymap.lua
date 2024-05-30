@@ -40,6 +40,7 @@ vim.keymap.set('v', '<D-/>', '<ESC><CMD>lua require("Comment.api").toggle.linewi
 -- [[ keymap for MacOS]]
 -- Ctrl + s to save file
 vim.keymap.set('n', '<D-s>', ':w<CR>', {})
+vim.keymap.set('i', '<D-s>', '<ESC>:w<CR>', {})
 -- copy
 vim.keymap.set('v', '<D-C>', '"+y"', {})
 -- paste
