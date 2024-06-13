@@ -5,7 +5,7 @@
 return {
   require 'custom.plugins.nvim-tree',
   require 'custom.plugins.which-key',
-  require 'custom.plugins.gitsigns',
+  -- require 'custom.plugins.gitsigns',
   require 'custom.plugins.telescope',
   require 'custom.plugins.lspconfig',
   require 'custom.plugins.autoformat',
@@ -13,4 +13,5 @@ return {
   require 'custom.plugins.nvim-treesitter',
   require 'custom.plugins.others',
   require 'custom.plugins.toggleterm',
+  -- require 'custom.plugins.coc',
 }

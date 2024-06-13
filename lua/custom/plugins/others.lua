@@ -94,6 +94,10 @@ return {
     end,
   },
 
+  {
+    'famiu/bufdelete.nvim',
+  },
+
   -- amongst your other plugins
   -- {
   --   'akinsho/toggleterm.nvim',

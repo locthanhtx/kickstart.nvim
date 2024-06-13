@@ -48,7 +48,11 @@ vim.keymap.set('n', '<D-V>', '"+p"', {})
 -- cut
 vim.keymap.set('v', '<D-X>', '"+d"', {})
 
+vim.keymap.set('v', '<Tab>', '>gv', opts)
+vim.keymap.set('v', "<S-Tab>", '<gv', opts)
+
 
 -- Set keymap for bufferline
 vim.keymap.set('n', '<Tab>', ':BufferLineCycleNext<CR>', { desc = 'Move next tab' })
 vim.keymap.set('n', '<S-Tab>', ':BufferLineCyclePrev<CR>', { desc = 'Move previos tab' })
+vim.keymap.set('n', '<leader>w', ':Bdelete<CR>', { desc = 'Close buffer without close tab' })
